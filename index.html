@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فرم نیازسنجی خدمات</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>فرم نیازسنجی خدمات</h1>
+            <p class="subtitle">به ما کمک کنید تا نیازهای شما را بهتر درک کنیم</p>
+        </header>
+
+        <!-- Step Indicators -->
+        <div class="step-indicators">
+            <div class="step active" data-step="1">
+                <div class="step-number">۱</div>
+                <div class="step-title">اطلاعات عمومی</div>
+            </div>
+            <div class="step" data-step="2">
+                <div class="step-number">۲</div>
+                <div class="step-title">انتخاب خدمت</div>
+            </div>
+            <div class="step" data-step="3">
+                <div class="step-number">۳</div>
+                <div class="step-title">اطلاعات تکمیلی</div>
+            </div>
+        </div>
+
+        <form id="requirementsForm">
+            <!-- Page 1: General Information -->
+            <div class="form-page" id="page1" style="display: block;">
+                <div class="form-section">
+                    <h2>اطلاعات عمومی</h2>
+                    <div id="generalQuestions"></div>
+                </div>
+            </div>
+
+            <!-- Page 2: Service Selection and Specific Questions -->
+            <div class="form-page" id="page2" style="display: none;">
+                <div class="form-section">
+                    <h2>انتخاب خدمت مورد نظر</h2>
+                    <div class="service-options">
+                        <div class="service-option">
+                            <input type="radio" id="website" name="service" value="website">
+                            <label for="website">طراحی سایت</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="software" name="service" value="software">
+                            <label for="software">نرم‌افزار اختصاصی</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="ai" name="service" value="ai">
+                            <label for="ai">ایجنت هوش مصنوعی</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="seo" name="service" value="seo">
+                            <label for="seo">سئو و بهینه‌سازی</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="automation" name="service" value="automation">
+                            <label for="automation">اتوماسیون و بهبود فرآیندها</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="serviceSpecificQuestions" class="form-section" style="display: none;"></div>
+            </div>
+
+            <!-- Page 3: Final Questions -->
+            <div class="form-page" id="page3" style="display: none;">
+                <div class="form-section">
+                    <h2>اطلاعات تکمیلی</h2>
+                    <div id="finalQuestions"></div>
+                </div>
+            </div>
+
+            <div class="form-navigation">
+                <button type="button" id="prevBtn" class="nav-btn" disabled>قبلی</button>
+                <button type="button" id="nextBtn" class="nav-btn">بعدی</button>
+                <button type="submit" id="submitBtn" class="nav-btn" style="display: none;">ارسال</button>
+            </div>
+        </form>
+
+        <div id="successMessage" class="success-message" style="display: none;">
+            <h2>با تشکر!</h2>
+            <p>اطلاعات شما با موفقیت ثبت شد.</p>
+            <p>کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
