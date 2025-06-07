@@ -1,7 +1,7 @@
 // Form state management
 let currentPage = 1;
 let formData = {};
-const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzCUI2fBTNQTeaK7FnUPAktrb8ZUquf4rWuuOleBlmRbW5p4v5AAQB_lz6D-KFdkvX7/exec';
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwC9b3S3x410hDwX4vl-q_-LmPjGFsDEODpR9hhrDk33lXhXB0LELBpilflS11pu_tGLQ/exec';
 
 // DOM Elements
 const form = document.getElementById('requirementsForm');
