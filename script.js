@@ -412,24 +412,16 @@ form.addEventListener('submit', async (e) => {
     try {
         const response = await fetch(GOOGLE_SHEET_URL, {
             method: 'POST',
-            mode: 'cors',
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
             },
             body: JSON.stringify(data)
         });
 
-        if (response.ok) {
-            const result = await response.json();
-            if (result.result === 'success') {
-                showSuccessMessage();
-            } else {
-                throw new Error(result.error || 'Submission failed');
-            }
-        } else {
-            throw new Error('Submission failed');
-        }
+        // Since we're using no-cors, we can't read the response
+        // We'll assume success if we get here
+        showSuccessMessage();
     } catch (error) {
         console.error('Error submitting form:', error);
         alert('خطا در ارسال فرم. لطفاً دوباره تلاش کنید.');
