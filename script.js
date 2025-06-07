@@ -415,6 +415,7 @@ form.addEventListener('submit', async (e) => {
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify(data)
         });
