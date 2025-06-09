@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>فرم نیازسنجی خدمات</title>
+    <link rel="icon" href="src/Favcon.PNG" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Mada:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <canvas id="graphCanvas"></canvas>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
     <div class="container">
         <header>
-            <h1>فرم نیازسنجی خدمات</h1>
+            <img src="src/LOGO.png" alt="Dan Logo" class="header-logo">
+            <h1 style="display: none;">فرم نیازسنجی خدمات</h1>
             <p class="subtitle">به ما کمک کنید تا نیازهای شما را بهتر درک کنیم</p>
         </header>
 
@@ -64,6 +69,34 @@
                             <input type="radio" id="automation" name="service" value="automation">
                             <label for="automation">اتوماسیون و بهبود فرآیندها</label>
                         </div>
+                        <div class="service-option">
+                            <input type="radio" id="online_ads" name="service" value="online_ads">
+                            <label for="online_ads">تبلیغات آنلاین (PPC – گوگل ادز، فیسبوک و...)</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="social_media" name="service" value="social_media">
+                            <label for="social_media">بازاریابی شبکه‌های اجتماعی (Social Media Marketing)</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="content_marketing" name="service" value="content_marketing">
+                            <label for="content_marketing">تولید محتوا و بازاریابی محتوا (Content Marketing)</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="cro" name="service" value="cro">
+                            <label for="cro">بهینه‌سازی نرخ تبدیل (CRO – Conversion Rate Optimization)</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="email_marketing" name="service" value="email_marketing">
+                            <label for="email_marketing">ایمیل مارکتینگ (Email Marketing)</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="analytics_reporting" name="service" value="analytics_reporting">
+                            <label for="analytics_reporting">تحلیل و گزارش‌دهی داده (Analytics & Reporting)</label>
+                        </div>
+                        <div class="service-option">
+                            <input type="radio" id="consultation" name="service" value="consultation">
+                            <label for="consultation">نیاز به مشاوره دارم / سایر</label>
+                        </div>
                     </div>
                 </div>
                 <div id="serviceSpecificQuestions" class="form-section" style="display: none;"></div>
@@ -91,5 +124,6 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <script src="background.js"></script>
 </body>
 </html> 

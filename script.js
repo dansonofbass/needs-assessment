@@ -27,8 +27,8 @@ const commonQuestions = [
     },
     {
         type: 'tel',
-        label: 'شماره تماس (اختیاریه ولی اگر بزاری راحت‌تر می‌تونیم در تماس باشیم)',
-        required: false,
+        label: 'شماره تماس',
+        required: true,
         name: 'phone'
     },
     {
@@ -255,6 +255,215 @@ const serviceQuestions = {
             required: true,
             name: 'security_level',
             options: ['پایه', 'متوسط', 'پیشرفته', 'خیلی پیشرفته']
+        }
+    ],
+    online_ads: [
+        {
+            type: 'select',
+            label: 'آیا قبلاً تبلیغات آنلاین انجام داده‌اید؟',
+            required: true,
+            name: 'online_ads_previous',
+            options: ['بله', 'خیر', 'نمی‌دانم']
+        },
+        {
+            type: 'textarea',
+            label: 'هدف شما از تبلیغات چیست؟ (افزایش فروش/لید، افزایش آگاهی برند، ترافیک سایت و…)',
+            required: true,
+            name: 'online_ads_goal'
+        },
+        {
+            type: 'textarea',
+            label: 'چه کانال‌هایی مدنظرتان است؟ (گوگل ادز، فیسبوک، لینکدین و…)',
+            required: false,
+            name: 'online_ads_channels'
+        },
+        {
+            type: 'select',
+            label: 'بودجه ماهانه یا کل پروژه چه قدر است؟',
+            required: true,
+            name: 'online_ads_budget',
+            options: ['کمتر از ۵ میلیون', '۵ تا ۱۰ میلیون', '۱۰ تا ۲۰ میلیون', 'بیشتر از ۲۰ میلیون']
+        },
+        {
+            type: 'select',
+            label: 'آیا نیاز به تحلیل و گزارش‌دهی کمپین‌ها دارید؟ به چه فرکانسی؟',
+            required: true,
+            name: 'online_ads_reporting',
+            options: ['ماهانه', 'هفتگی', 'روزانه', 'خیر']
+        }
+    ],
+    social_media: [
+        {
+            type: 'textarea',
+            label: 'کدام پلتفرم‌ها برای شما اولویت دارند؟ (Instagram, LinkedIn, Telegram…)',
+            required: true,
+            name: 'social_media_platforms'
+        },
+        {
+            type: 'select',
+            label: 'آیا فقط تولید محتوا نیاز دارید یا کمپین هم می‌خواهید؟',
+            required: true,
+            name: 'social_media_type',
+            options: ['تولید محتوا', 'کمپین', 'هر دو']
+        },
+        {
+            type: 'select',
+            label: 'تعداد پست در هفته بهتر است چند تا باشد؟',
+            required: true,
+            name: 'social_media_post_count',
+            options: ['۱-۳', '۳-۵', 'بیشتر از ۵']
+        },
+        {
+            type: 'textarea',
+            label: 'چگونه موفقیت را می‌سنجید؟ (میزان تعامل، فالوئر، فروش مستقیم و…)',
+            required: true,
+            name: 'social_media_success_metrics'
+        },
+        {
+            type: 'select',
+            label: 'آیا به مدیریت نظرات و مشتری نیاز است؟',
+            required: true,
+            name: 'social_media_customer_management',
+            options: ['بله', 'خیر']
+        }
+    ],
+    content_marketing: [
+        {
+            type: 'textarea',
+            label: 'چه نوع محتوایی نیاز دارید؟ (وبلاگ، ویدیو، گرافیک، ایمیل و…)',
+            required: true,
+            name: 'content_type'
+        },
+        {
+            type: 'select',
+            label: 'آیا تقویم محتوا می‌خواهید؟',
+            required: true,
+            name: 'content_calendar',
+            options: ['بله', 'خیر']
+        },
+        {
+            type: 'textarea',
+            label: 'تن صدا و سبک محتوا چطور باشد؟ (رسمی، دوستانه، آموزشی، برندینگ)',
+            required: true,
+            name: 'content_tone_style'
+        },
+        {
+            type: 'select',
+            label: 'آیا ویرایشگر/تصویربردار/ویراستار نیاز دارید؟',
+            required: true,
+            name: 'content_support_needed',
+            options: ['بله', 'خیر']
+        },
+        {
+            type: 'textarea',
+            label: 'انتظار دارید محتوا چه اثرگذاری داشته باشد؟ (افزایش لید، CTR، SEO…)',
+            required: true,
+            name: 'content_impact'
+        }
+    ],
+    cro: [
+        {
+            type: 'textarea',
+            label: 'هدف شما چیست؟ (افزایش تبدیل صفحه فرود، سبد خرید, فرم تماس و…)',
+            required: true,
+            name: 'cro_goal'
+        },
+        {
+            type: 'select',
+            label: 'آیا صفحه فرود خاصی دارید یا باید طراحی کنیم؟',
+            required: true,
+            name: 'cro_landing_page',
+            options: ['داریم', 'باید طراحی شود', 'مشخص نیست']
+        },
+        {
+            type: 'select',
+            label: 'نیاز به تست A/B دارید؟',
+            required: true,
+            name: 'cro_ab_testing',
+            options: ['بله', 'خیر']
+        },
+        {
+            type: 'textarea',
+            label: 'چه معیارهایی را می‌خواهید اندازه‌گیری کنید؟ (نرخ تبدیل، نرخ پرش، مدت‌زمان ماندن و…)',
+            required: true,
+            name: 'cro_metrics'
+        },
+        {
+            type: 'textarea',
+            label: 'چه تغییراتی در UI/UX مدنظرتان است؟',
+            required: true,
+            name: 'cro_ui_ux_changes'
+        }
+    ],
+    email_marketing: [
+        {
+            type: 'textarea',
+            label: 'قصد دارید چه نوع ایمیلی بفرستید؟ (خبرنامه، تبلیغی، ریتارگتینگ و…)',
+            required: true,
+            name: 'email_type'
+        },
+        {
+            type: 'select',
+            label: 'چند ایمیل در ماه می‌خواهید؟',
+            required: true,
+            name: 'email_frequency',
+            options: ['۱-۲', '۳-۴', 'بیشتر از ۴']
+        },
+        {
+            type: 'select',
+            label: 'آیا لیست ایمیل دارید یا می‌خواهید جذب کنیم؟',
+            required: true,
+            name: 'email_list_status',
+            options: ['داریم', 'باید جذب شود', 'ترکیبی']
+        },
+        {
+            type: 'select',
+            label: 'آیا نیاز به طراحی قالب اختصاصی HTML دارید؟',
+            required: true,
+            name: 'email_html_template',
+            options: ['بله', 'خیر']
+        },
+        {
+            type: 'textarea',
+            label: 'معیار سنجش موفقیت چیست؟ (نرخ باز شدن، نرخ کلیک، تبدیل)',
+            required: true,
+            name: 'email_success_metrics'
+        }
+    ],
+    analytics_reporting: [
+        {
+            type: 'textarea',
+            label: 'چه داده‌هایی می‌خواهید تحلیل شود؟ (ترافیک، رفتار کاربر، ROI و…)',
+            required: true,
+            name: 'analytics_data_types'
+        },
+        {
+            type: 'select',
+            label: 'هر چند وقت گزارش می‌خواهید؟ (ماهانه، هفتگی…)',
+            required: true,
+            name: 'analytics_report_frequency',
+            options: ['ماهانه', 'هفتگی', 'روزانه']
+        },
+        {
+            type: 'select',
+            label: 'آیا نیاز به داشبورد آنلاین دارید؟',
+            required: true,
+            name: 'analytics_dashboard',
+            options: ['بله', 'خیر']
+        },
+        {
+            type: 'textarea',
+            label: 'آیا با ابزار خاصی کار می‌کنید؟ (Google Analytics, Tag Manager…)',
+            required: false,
+            name: 'analytics_tools'
+        }
+    ],
+    consultation: [
+        {
+            type: 'textarea',
+            label: 'لطفاً نیازها یا سوالات خود را مطرح کنید:',
+            required: true,
+            name: 'consultation_message'
         }
     ]
 };
