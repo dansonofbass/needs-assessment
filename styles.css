@@ -165,7 +165,7 @@ header h1:hover {
 }
 
 .subtitle {
-    color: var(--gray1);
+    color: rgba(255, 255, 255, 0.801);
     font-size: 1.1rem;
 }
 
@@ -264,9 +264,9 @@ header h1:hover {
 }
 
 @keyframes h2-shine {
-    0% { opacity: 0.7; text-shadow: 0 0 5px rgba(255, 255, 255, 0.534); }
-    50% { opacity: 0.9; text-shadow: 0 0 10px rgba(255, 255, 255, 0.795); }
-    100% { opacity: 0.7; text-shadow: 0 0 5px rgba(255, 255, 255, 0.527); }
+    0% { opacity: 0.8; text-shadow: 0 0 5px rgba(255, 255, 255, 0.534); }
+    50% { opacity: 0.95; text-shadow: 0 0 10px rgba(255, 255, 255, 0.61); }
+    100% { opacity: 0.8; text-shadow: 0 0 5px rgba(255, 255, 255, 0.527); }
 }
 
 .form-group {
@@ -278,7 +278,7 @@ label {
     margin-bottom: 0.5rem;
     color: var(--gray2);
     text-align: center;
-    font-size: 0.81rem; /* 10% smaller */
+    font-size: 0.9rem; /* 10% smaller */
 }
 
 input[type="text"],
@@ -288,10 +288,10 @@ textarea,
 select {
     width: 70%;
     max-width: 400px;
-    padding: 0.72rem; /* 10% smaller */
-    border: 2px solid rgba(199, 199, 199, 0.281);
+    padding: 0.8rem; /* 10% smaller */
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
-    background: rgba(37, 37, 37, 0.37);
+    background: rgba(0, 0, 0, 0.5);
     color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
     transition: all 0.3s ease;
     box-shadow: none;
@@ -350,11 +350,16 @@ select:focus {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1rem;
-    margin-bottom: 2rem;
+    align-items: stretch;
 }
 
 .service-option {
     position: relative;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .service-option input[type="radio"] {
@@ -362,12 +367,15 @@ select:focus {
 }
 
 .service-option label {
-    display: block;
-    padding: 1rem;
+    display: flex;
+    padding: 10px;
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid rgba(255, 255, 255, 0.8); /* White border, 80% opacity */
     border-radius: 8px;
-    text-align: center;
+    width : 240px;
+    height: 80px;
+    justify-content: center; /* مرکز افقی */
+    align-items: center; 
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 0.9rem; /* Normal font size */
@@ -383,8 +391,8 @@ select:focus {
 
 .service-option label:hover {
     border-color: var(--green2);
-    transform: translateY(-2px);
-    font-size: 1rem; /* Font size on hover */
+    transform: translateY(-1px);
+    font-size: 0.9rem; /* Font size on hover */
 }
 
 @keyframes white-shine {
@@ -401,14 +409,14 @@ select:focus {
 }
 
 .nav-btn {
-    padding: 0.5rem 1.5rem;
+    padding: 0.5rem 2rem;
     border: 2px solid rgba(8, 205, 0, 0.8);
     border-radius: 8px;
     background: rgba(10, 10, 10, 0.9);
     color: white;
     cursor: pointer;
     transition: all 0.5s ease;
-    font-size: 1rem;
+    font-size: 1.1rem;
     transform: scale(1);
 }
 
@@ -443,7 +451,7 @@ select:focus {
 
 /* Error Messages */
 .error-message {
-    color:  rgba(231, 36, 36, 0.827);
+    color: rgba(200, 10, 10, 0.7);
     font-size: 0.9rem;
     margin-top: 0.5rem;
     text-align: center;
@@ -452,7 +460,7 @@ select:focus {
 input.error,
 textarea.error,
 select.error {
-    border-color: rgba(231, 36, 36, 0.827);
+    border-color: rgba(200, 10, 10, 0.7);
     box-shadow: 0 0 10px rgba(202, 15, 15, 0.5);
 }
 
@@ -510,4 +518,80 @@ select.error {
     .step-title {
         font-size: 0.675rem; /* 10% smaller than 0.75rem */
     }
+} 
+
+/* Landing Page Styles */
+.landing-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg);
+    z-index: 1000;
+}
+
+.landing-content {
+    text-align: center;
+    padding: 2rem;
+}
+
+.landing-logo {
+    width: 75%;
+    max-width: 500px;
+    margin-bottom: 2rem;
+    filter: brightness(1.5) contrast(1.2);
+    transition: transform 0.5s ease-in-out;
+    animation: logo-flicker 3s infinite alternate;
+}
+
+.landing-title {
+    color: var(--green2);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(7, 180, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.start-btn {
+    padding: 1rem 3%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border: 3px solid rgba(8, 205, 0, 0.8);
+    border-radius: 8px;
+    background: rgba(10, 10, 10, 0.9);
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    transform: scale(1);
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(8, 205, 0, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.start-btn:hover {
+    transform: scale(1.05);
+    background: rgba(8, 205, 0, 0.8);
+    color: white;
+    border: 2px solid black;
+}
+
+.start-btn:hover::before {
+    width: 300px;
+    height: 300px;
 } 

@@ -15,31 +15,31 @@ const steps = document.querySelectorAll('.step');
 const commonQuestions = [
     {
         type: 'text',
-        label: 'اسم شما چیه؟',
+        label: 'لطفاً نام خودتون رو وارد کنین:',
         required: true,
         name: 'name'
     },
     {
-        type: 'email',
-        label: 'ایمیلت رو لطف می‌کنی؟',
-        required: true,
-        name: 'email'
-    },
-    {
         type: 'tel',
-        label: 'شماره تماس',
+        label: 'شماره تماستون رو وارد کنید؟ (ضروری)',
         required: true,
         name: 'phone'
     },
     {
+        type: 'email',
+        label: 'اگر تمایل دارید، ایمیل‌تون رو هم وارد کنید: (اختیاری)',
+        required: false,
+        name: 'email'
+    },
+    {
         type: 'text',
-        label: 'اسم برند یا شرکتت چیه؟ (اگه نداری، مهم نیست)',
+        label: 'نام برند یا مجموعه‌تون چیه؟ (در صورت نداشتن، می‌تونید این بخش رو خالی بذارید)',
         required: false,
         name: 'company'
     },
     {
         type: 'text',
-        label: 'وب‌سایت فعلی داری؟ آدرسش رو برامون بنویس.',
+        label: 'آیا وب‌سایتی دارید؟ لطفاً آدرسش رو برای ما بنویسید.',
         required: false,
         name: 'current_website'
     }
@@ -592,9 +592,32 @@ document.querySelectorAll('input[name="service"]').forEach(radio => {
     });
 });
 
-// Form navigation
-nextBtn.addEventListener('click', () => {
+// ذخیره موقت اطلاعات فرم هنگام کلیک روی دکمه بعدی
+async function savePartialForm() {
+    const formDataObj = new FormData(form);
+    const data = Object.fromEntries(formDataObj.entries());
+
+    // فقط اگر ایمیل یا موبایل پر بود ارسال کن
+    if (!data.email && !data.phone) return;
+
+    try {
+        await fetch(GOOGLE_SHEET_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+    } catch (error) {
+        console.error('خطا در ذخیره موقت فرم:', error);
+    }
+}
+
+// تغییر event دکمه بعدی
+nextBtn.addEventListener('click', async () => {
     if (validateCurrentPage()) {
+        await savePartialForm();
         if (currentPage < 3) {
             currentPage++;
             showPage(currentPage);
@@ -717,4 +740,14 @@ function showSuccessMessage() {
 }
 
 // Initialize form when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeForm); 
+document.addEventListener('DOMContentLoaded', initializeForm);
+
+// Landing page interaction
+const landingPage = document.getElementById('landingPage');
+const formContainer = document.getElementById('formContainer');
+const startBtn = document.getElementById('startBtn');
+
+startBtn.addEventListener('click', () => {
+    landingPage.style.display = 'none';
+    formContainer.style.display = 'block';
+}); 
